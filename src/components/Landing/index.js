@@ -1,12 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {registerUser} from './../../actions';
 
 function Landing () {
+
+  function handleRegister(event) {
+    const {registerUser} = this.props;
+    registerUser();
+    event.preventDefault();
+  }
+
   return (
     <div>
       <form>
         <input type="text" placeholder="Email"/>
         <input type="text" placeholder="Password"/>
-        <button type="submit">Login</button>
+        <button
+          onclick={handleRegister}
+        type="submit">Login</button>
       </form>
       <form>
         <input type="text" placeholder="Email"/>
@@ -18,4 +29,4 @@ function Landing () {
   )
 }
 
-export default Landing;
+export default connect(null, registerUser)(Landing);

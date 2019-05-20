@@ -1,6 +1,6 @@
 import constants from './../constants';
 const {firebaseConfig} = constants;
-import Firebase from 'firebase';
+import firebase from 'firebase';
 import "firebase/auth";
 
 firebase.initializeApp(firebaseConfig);

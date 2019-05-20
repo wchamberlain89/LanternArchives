@@ -1,7 +1,7 @@
-import * as types from './ActionTypes';
+// import * as types from './ActionTypes';
 import firebaseConfig from './firebaseConfig';
 
 export default {
-  types: types,
+  // types: types,
   firebaseConfig: firebaseConfig
 }

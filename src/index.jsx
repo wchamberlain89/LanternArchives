@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, applyMiddleWare} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/index';
 import App from './components/App';
@@ -10,7 +10,7 @@ import AOS from 'aos';
 import 'aos/src/sass/aos.scss';
 import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer, applyMiddleWare(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
