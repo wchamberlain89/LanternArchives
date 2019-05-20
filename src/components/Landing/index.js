@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {registerUser} from './../../actions';
+import {signUp} from './../../actions';
 
-function Landing () {
+function Landing (props) {
 
   function handleRegister(event) {
-    const {registerUser} = this.props;
-    registerUser();
+    const {signUp} = props;
+    signUp();
     event.preventDefault();
   }
 
@@ -16,7 +16,7 @@ function Landing () {
         <input type="text" placeholder="Email"/>
         <input type="text" placeholder="Password"/>
         <button
-          onclick={handleRegister}
+          onClick={handleRegister}
         type="submit">Login</button>
       </form>
       <form>
@@ -29,4 +29,4 @@ function Landing () {
   )
 }
 
-export default connect(null, registerUser)(Landing);
+export default connect(null, signUp)(Landing);
