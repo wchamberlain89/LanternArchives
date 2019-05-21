@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signUp } from './../../actions';
+import { signUp, signOut } from './../../actions';
 import Test  from './../Test';
 
 function Landing ({dispatch}) {
@@ -10,21 +10,19 @@ function Landing ({dispatch}) {
     event.preventDefault();
   }
 
+  function handleSignOut() {
+    dispatch(signOut())
+  }
+
   return (
     <div>
       <Test/>
-      <form>
-        <input type="text" placeholder="Email"/>
-        <input type="text" placeholder="Password"/>
-        <button
-          onClick={handleRegister}
-        type="submit">Login</button>
-      </form>
+
       <form>
         <input type="text" placeholder="Email"/>
         <input type="text" placeholder="Password"/>
         <input type="text" placeholder="Confirm Password"/>
-        <button type="submit">Register</button>
+        <button type="submit" onClick={handleSignOut}>Register</button>
       </form>
     </div>
   )

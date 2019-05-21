@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 //redux
 import {createStore, applyMiddleware, compose} from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers/index';
+import rootReducer from './reducers';
 import thunkMiddleware from 'redux-thunk';
 
 //react-router
@@ -23,7 +23,7 @@ import AOS from 'aos';
 import 'aos/src/sass/aos.scss';
 
 //firebase
-import {reactReduxFirebase} from 'react-redux-firebase'
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
 import firebase from 'firebase'
 const { firebaseConfig } = constants;
 
@@ -38,6 +38,9 @@ const config = {
 }
 
 const createStoreWithFirebase = compose(
+  applyMiddleware(
+    thunkMiddleware.withExtraArgument({getFirebase})
+  ),
   reactReduxFirebase(firebase, config)
 )(createStore)
 
