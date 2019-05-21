@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
+import { firebaseReducer } from 'react-redux-firebase'
 
-const rootReducer = (state = {}, action) => {
-  return state;
-}
+const rootReducer = combineReducers({
+  firebase : firebaseReducer
+})
 
 export default rootReducer;
