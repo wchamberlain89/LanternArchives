@@ -1,20 +1,47 @@
+//generic
+import constants from './constants';
+
+//react
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, applyMiddleware} from 'redux';
+
+//redux
+import {createStore, applyMiddleware, compose} from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/index';
-import App from './components/App';
-import { HashRouter } from 'react-router-dom';
-import { AppContainer } from 'react-hot-loader';
-import AOS from 'aos';
-import 'aos/src/sass/aos.scss';
 import thunkMiddleware from 'redux-thunk';
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+//react-router
+import { HashRouter } from 'react-router-dom';
 
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-);
+//components
+import { AppContainer } from 'react-hot-loader';
+import App from './components/App';
+
+//scss
+import AOS from 'aos';
+import 'aos/src/sass/aos.scss';
+
+//firebase
+import {reactReduxFirebase} from 'react-redux-firebase'
+import firebase from 'firebase'
+const { firebaseConfig } = constants;
+
+/////////////////////////////
+//React-Redux-Firebase setup
+/////////////////////////////
+firebase.initializeApp(firebaseConfig)
+
+const config = {
+  userProfile: 'users',
+  enableLogging: false
+}
+
+const createStoreWithFirebase = compose(
+  reactReduxFirebase(firebase, config)
+)(createStore)
+
+const store = createStoreWithFirebase(rootReducer)
 
 const render = (Component) => {
   AOS.init();

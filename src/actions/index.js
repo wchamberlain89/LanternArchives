@@ -3,8 +3,6 @@ const {firebaseConfig} = constants;
 import firebase from 'firebase';
 import "firebase/auth";
 
-firebase.initializeApp(firebaseConfig);
-
 export function signUp() {
     return () => firebase.auth()
     .signInAnonymously()

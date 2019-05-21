@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signUp } from './../../actions';
+import Test  from './../Test';
 
 function Landing ({dispatch}) {
 
@@ -11,6 +12,7 @@ function Landing ({dispatch}) {
 
   return (
     <div>
+      <Test/>
       <form>
         <input type="text" placeholder="Email"/>
         <input type="text" placeholder="Password"/>
