@@ -5,8 +5,8 @@ import "firebase/auth";
 
 firebase.initializeApp(firebaseConfig);
 
-export const signUp = () => dispatch => {
-  firebase.auth()
+export function signUp() {
+    return () => firebase.auth()
     .signInAnonymously()
     .then(result => console.log("SignedUp"))
     .catch(error => console.log(error));

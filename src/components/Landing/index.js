@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {signUp} from './../../actions';
+import { signUp } from './../../actions';
 
-function Landing (props) {
+function Landing ({dispatch}) {
 
   function handleRegister(event) {
-    const {signUp} = props;
-    signUp();
+    dispatch(signUp())
     event.preventDefault();
   }
 
@@ -29,4 +28,4 @@ function Landing (props) {
   )
 }
 
-export default connect(null, signUp)(Landing);
+export default connect()(Landing);

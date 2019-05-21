@@ -8,9 +8,9 @@ import { HashRouter } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
 import AOS from 'aos';
 import 'aos/src/sass/aos.scss';
-import thunk from 'redux-thunk';
+import thunkMiddleware from 'redux-thunk';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
