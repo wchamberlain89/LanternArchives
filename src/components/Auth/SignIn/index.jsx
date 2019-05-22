@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { signUp } from './../../../actions';
-
+import { signIn } from './../../../actions';
+import { compose } from 'react-redux';
 class SignIn extends React.Component {
 
   constructor(props) {
@@ -10,31 +10,44 @@ class SignIn extends React.Component {
       email: '',
       password: ''
     };
-    this.handleRegister = this.handleRegister.bind(this)
+    this.handleSignIn = this.handleSignIn.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleRegister(event) {
-    this.props.signUp();
+  handleSignIn(event) {
     event.preventDefault();
+    this.props.signIn(this.state);
+    console.log(this.props)
+  }
+
+  handleChange(e) {
+    let state = Object.assign({}, this.state);
+    console.log(state)
+    state[e.target.name] = e.target.value;
+    this.setState(state);
+    console.log(this.state);
   }
 
   render() {
     return (
       <form>
-      <input type="text" placeholder="Email"/>
-      <input type="text" placeholder="Password"/>
-      <button
-      onClick={this.handleRegister}
-      type="submit">Register</button>
+        <input type="text" placeholder="Email"    name="email"    onChange={this.handleChange}/>
+        <input type="text" placeholder="Password" name="password" onChange={this.handleChange}/>
+        <button
+          onClick={this.handleSignIn} type="submit">
+          Sign In
+        </button>
       </form>
-    )
+    );
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signUp: () => dispatch(signUp())
-  }
+    signIn: (user) => dispatch(signIn(user))
+  };
 };
+
+// compose()
 
 export default connect(null, mapDispatchToProps)(SignIn);

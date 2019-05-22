@@ -1,19 +1,27 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import {withRouter} from 'react-router';
 import Landing from './Landing/index';
-
+import Settlements from './Settlements';
+import AuthController from './Auth/AuthController';
 import Error404 from './Error404';
+import {firebaseConnect} from 'react-redux-firebase'
+import {connect} from 'react-redux'
 
-function App(){
-  return (
-    <div>
-      <Switch>
-        <Route path="/" component={Landing}/>
-        <Route component={Error404}/>
-      </Switch>
+function App() {
 
-    </div>
-  );
+
+    return (
+      <div>
+        <Switch>
+          <Route path="/settlements" component={Settlements}/>
+          <Route path="/signIn" component={AuthController}/>
+          <Route path="/" component={AuthController} />
+          <Route component={Error404}/>
+        </Switch>
+      </div>
+    );
+
 }
 
 export default App;

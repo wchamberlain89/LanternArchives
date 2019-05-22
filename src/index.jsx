@@ -23,45 +23,50 @@ import AOS from 'aos';
 import 'aos/src/sass/aos.scss';
 
 //firebase
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
-import firebase from 'firebase'
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import firebase from 'firebase';
 const { firebaseConfig } = constants;
 
 /////////////////////////////
 //React-Redux-Firebase setup
 /////////////////////////////
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
 
 const config = {
   userProfile: 'users',
-  enableLogging: false
-}
+  enableLogging: false,
+  attachAuthIsReady: true
+};
 
 const createStoreWithFirebase = compose(
   applyMiddleware(
     thunkMiddleware.withExtraArgument({getFirebase})
   ),
   reactReduxFirebase(firebase, config)
-)(createStore)
+)(createStore);
 
-const store = createStoreWithFirebase(rootReducer)
+const store = createStoreWithFirebase(rootReducer);
+
+store.firebaseAuthIsReady.then(() => {
 
 const render = (Component) => {
-  AOS.init();
-  AOS.refresh();
-  ReactDOM.render(
-    <AppContainer>
-      <HashRouter>
-        <Provider store={store}>
-          <Component/>
-        </Provider>
-      </HashRouter>
-    </AppContainer>,
-    document.getElementById('react-app-root')
-  );
-};
+    AOS.init();
+    AOS.refresh();
+    ReactDOM.render(
+      <AppContainer>
+          <Provider store={store}>
+            <HashRouter>
+              <Component/>
+            </HashRouter>
+          </Provider>
+      </AppContainer>,
+      document.getElementById('react-app-root')
+    );
+  };
 
 render(App);
+
+})
 
 /*eslint-disable */
 if (module.hot) {

@@ -4,19 +4,18 @@ import { signUp, signOut } from './../../actions';
 import Test  from './../Test';
 import SignIn from './../Auth/SignIn';
 import Register from './../Auth/Register';
+
 function Landing ({dispatch}) {
 
   function handleSignOut() {
-    dispatch(signOut())
+    dispatch(signOut());
   }
 
   return (
-    <div>
-      <Test/>
-      <SignIn/>
-      <Register/>
-    </div>
-  )
+    
+      <button type='button' onClick={handleSignOut}>Signout</button>
+
+  );
 }
 
 export default connect()(Landing);
