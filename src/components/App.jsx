@@ -8,6 +8,8 @@ import Error404 from './Error404';
 import {firebaseConnect} from 'react-redux-firebase'
 import {connect} from 'react-redux'
 
+import {Dashboard} from './Dashboard';
+
 function App() {
 
 
@@ -16,7 +18,7 @@ function App() {
         <Switch>
           <Route path="/settlements" component={Settlements}/>
           <Route path="/signIn" component={AuthController}/>
-          <Route path="/" component={AuthController} />
+          <Route path="/" component={Dashboard} />
           <Route component={Error404}/>
         </Switch>
       </div>
