@@ -9,7 +9,7 @@ function ResourcesMain(props) {
       <ResourcesList settlementId={props.match.params.id}/>
       <button onClick={props.history.goBack}>Back</button>
     </div>
-  )
+  );
 }
 
 export default withRouter(ResourcesMain);

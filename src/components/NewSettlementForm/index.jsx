@@ -6,8 +6,8 @@ class NewSettlementForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title : ""
-    }
+      title : ''
+    };
     this.handleAddingSettlement = this.handleAddingSettlement.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -26,15 +26,15 @@ class NewSettlementForm extends React.Component {
 
   render() {
 
-  console.log(this.props);
+    console.log(this.props);
 
-  return(
-    <div>
-      <form>
-        <input type="text" name="title" onChange={this.handleChange} placeholder="Enter a name for your settlement."/>
-        <button type="submit" onClick={this.handleAddingSettlement}>Add Settlement</button>
-      </form>
-      <style jsx>{`
+    return(
+      <div>
+        <form>
+          <input type="text" name="title" onChange={this.handleChange} placeholder="Enter a name for your settlement."/>
+          <button type="submit" onClick={this.handleAddingSettlement}>Add Settlement</button>
+        </form>
+        <style jsx>{`
         input {
           width: 100%;
           background-color: transparent;
@@ -64,15 +64,15 @@ class NewSettlementForm extends React.Component {
           cursor: pointer;
         }
         `}</style>
-    </div>
-    )
+      </div>
+    );
   }
 }
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {

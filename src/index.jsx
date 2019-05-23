@@ -49,24 +49,24 @@ const store = createStoreWithFirebase(rootReducer);
 
 store.firebaseAuthIsReady.then(() => {
 
-const render = (Component) => {
+  const render = (Component) => {
     AOS.init();
     AOS.refresh();
     ReactDOM.render(
       <AppContainer>
-          <Provider store={store}>
-            <HashRouter>
-              <Component/>
-            </HashRouter>
-          </Provider>
+        <Provider store={store}>
+          <HashRouter>
+            <Component/>
+          </HashRouter>
+        </Provider>
       </AppContainer>,
       document.getElementById('react-app-root')
     );
   };
 
-render(App);
+  render(App);
 
-})
+});
 
 /*eslint-disable */
 if (module.hot) {

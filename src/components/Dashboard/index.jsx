@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
     super(props);
     this.state = {
       addFormShowing : 'false'
-    }
+    };
     this.toggleAddForm = this.toggleAddForm.bind(this);
   }
 
@@ -23,24 +23,24 @@ class Dashboard extends React.Component {
     this.setState(state);
   }
 
-render() {
-  if (!this.props.auth.uid) {
-    return (
-      <Redirect to="/signIn" />
-    )
-  }
+  render() {
+    if (!this.props.auth.uid) {
+      return (
+        <Redirect to="/signIn" />
+      );
+    }
 
-  return (
-    <div>
-      <div className="header">
-        <img src={lanternLogo}/>
-        <h2>Settlements</h2>
-      </div>
-      <Switch>
-        <Route path='/addSettlement' render={ (props) => <NewSettlementForm props={this.props}/> } />
-        <Route path='/'         render={ (props) => <SettlementsList/> }   />
-      </Switch>
-      <style jsx>{`
+    return (
+      <div>
+        <div className="header">
+          <img src={lanternLogo}/>
+          <h2>Settlements</h2>
+        </div>
+        <Switch>
+          <Route path='/addSettlement' render={ (props) => <NewSettlementForm props={this.props}/> } />
+          <Route path='/'         render={ (props) => <SettlementsList/> }   />
+        </Switch>
+        <style jsx>{`
         .header {
           border-bottom: 2px solid white;
           padding: 15px ;
@@ -64,16 +64,16 @@ render() {
         }
 
       `}</style>
-    </div>
+      </div>
 
-  )
-}
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
     auth : state.firebase.auth
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Dashboard);

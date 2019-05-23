@@ -6,30 +6,25 @@ import {firebaseConnect} from 'react-redux-firebase';
 import {createSettlement} from './../../actions';
 import {Link} from 'react-router-dom';
 import Test from './../Test';
-
+import SettlementItem from './../SettlementItem';
 
 
 function SettlementsList(props) {
   const {settlements} = props;
 
-
-
-  function handleClick() {
-
-  }
   return(
     <div>
-      <Link to={'/addSettlement'}><div onClick={props.toggleForm} className="newSettlement">
+      <Link style={{textDecoration: 'none'}} to={'/addSettlement'}><div onClick={props.toggleForm} className="newSettlement">
         <span>Create a new settlement</span>
       </div></Link>
       { settlements && Object.keys(settlements).map(settlementId => {
         const currentSettlement = settlements[settlementId];
         return (
-          <Link to={'/settlements/' + settlementId} key={settlementId}>
-            <div>{currentSettlement.name}</div>
+          <Link style={{textDecoration: 'none', color: 'black'}} to={'/settlements/' + settlementId} key={settlementId}>
+            <SettlementItem settlement={currentSettlement}/>
           </Link>
-        )
-        })}
+        );
+      })}
       <style jsx>{`
         .newSettlement{
           width: 100%;
@@ -52,15 +47,15 @@ function SettlementsList(props) {
         }
         `}</style>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = (state) => {
   return {
     settlements: state.firebase.data.settlements,
     auth: state.firebase.auth
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -73,4 +68,4 @@ export default compose(
   firebaseConnect((props) => [
     { path: 'settlements', queryParams: ['orderByChild=user', `equalTo=${props.auth.uid}`] }
   ])
-)(SettlementsList)
+)(SettlementsList);

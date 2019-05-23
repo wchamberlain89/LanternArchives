@@ -30,14 +30,14 @@ class SignIn extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <div className='signInContainer'>
-      <h3>Sign in to your account</h3>
+        <h3>Sign in to your account</h3>
         <form>
           <div className='inputContainer'>
             <div className='imgContainer'>
-              <img src={user} style={{paddingTop: "2px"}} alt=""/>
+              <img src={user} style={{paddingTop: '2px'}} alt=""/>
             </div>
             <input type="text" placeholder="Email"    name="email"    onChange={this.handleChange}/>
           </div>
@@ -45,7 +45,7 @@ class SignIn extends React.Component {
             <div className='imgContainer'>
               <img src={password} alt=""/>
             </div>
-              <input type="password" placeholder="Password" name="password" onChange={this.handleChange}/>
+            <input type="password" placeholder="Password" name="password" onChange={this.handleChange}/>
           </div>
           <button
             onClick={this.handleSignIn} type="submit">

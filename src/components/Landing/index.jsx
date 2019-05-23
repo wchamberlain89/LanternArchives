@@ -13,7 +13,7 @@ function Landing ({dispatch}) {
 
   return (
     
-      <button type='button' onClick={handleSignOut}>Signout</button>
+    <button type='button' onClick={handleSignOut}>Signout</button>
 
   );
 }

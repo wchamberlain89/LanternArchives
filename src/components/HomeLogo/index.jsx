@@ -8,7 +8,7 @@ function HomeLogo() {
       <h1 style={textStyles}>Lantern Archives</h1>
       <img src={lanternLogo} style={imageStyles} alt=""/>
     </div>
-  )
+  );
 }
 
 export default HomeLogo;

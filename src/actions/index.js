@@ -29,7 +29,7 @@ export const signIn = (user) => {
         user.email,
         user.password
       )
-      .then(result => console.log("something"))
+      .then(result => console.log('something'))
       .catch(error => console.log(error));
   };
 };
@@ -47,30 +47,30 @@ export const signOut = () => {
 
 export const createSettlement = (userId, name) => {
   return (dispatch, getState, {getFirebase}) => {
-    console.log("attempting to add settlement")
+    console.log('attempting to add settlement');
     const firebase = getFirebase();
-    const resourcesKey = firebase.database().ref('resources').push(availableResources).key
+    const resourcesKey = firebase.database().ref('resources').push(availableResources).key;
     firebase.database().ref('settlements')
-    .push({ name: name, user: userId, resources: resourcesKey  })
-  }
-}
+      .push({ name: name, user: userId, resources: resourcesKey  });
+  };
+};
 
 export const updateQty = (item, settlementId) => {
   return (dispatch, getState, {getFirebase}) => {
     const firebase = getFirebase();
-    const itemRef = firebase.database().ref().child('/settlements/' + settlementId + '/resources/' + item)
+    const itemRef = firebase.database().ref().child('/settlements/' + settlementId + '/resources/' + item);
 
 
     itemRef.once('value').then(function(snapshot){
       if(snapshot.val()) {
-        let qty = snapshot.val().qty || 0
+        let qty = snapshot.val().qty || 0;
 
         itemRef.update({qty: qty + 1})
-        .then(()=> console.log('success'))
-        .catch(error => console.log(error))
+          .then(()=> console.log('success'))
+          .catch(error => console.log(error));
 
       }
-    })
+    });
 
-  }
-}
+  };
+};

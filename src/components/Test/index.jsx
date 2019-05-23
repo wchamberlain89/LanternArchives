@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 function Test(props){
-  console.log(props.auth)
+  console.log(props.auth);
   return(
     <div>test : {props.auth.email || 'No good'}</div>
   );

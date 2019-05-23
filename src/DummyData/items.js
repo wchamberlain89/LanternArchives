@@ -2,36 +2,36 @@ const availableResources = {
   categories :
   {
     basicresources : {
-      name: "Basic Resources",
+      name: 'Basic Resources',
       resources: {
-        "???" : {
-          name: "???",
-          types: ["bone", "organ", "hide"]
+        '???' : {
+          name: '???',
+          types: ['bone', 'organ', 'hide']
         },
         monsterhide : {
-          name: "Monster Hide",
-          types: ["bone", "organ", "hide"]
+          name: 'Monster Hide',
+          types: ['bone', 'organ', 'hide']
         },
         monsterbone : {
-          name: "Monster Bone",
-          types: ["bone", "organ", "hide"]
+          name: 'Monster Bone',
+          types: ['bone', 'organ', 'hide']
         }
       }
     },
     whitelion : {
-      name: "White Lion",
+      name: 'White Lion',
       resources: {
         lionclaw : {
-          name: "Lion Claw",
-          types: ["bone", "organ", "hide"]
+          name: 'Lion Claw',
+          types: ['bone', 'organ', 'hide']
         },
         liontestes: {
-          name: "Lion Testes",
-          types: ["bone", "organ", "hide"]
+          name: 'Lion Testes',
+          types: ['bone', 'organ', 'hide']
         },
         shimmeringmane : {
-          name: "Shimmering Mane",
-          types: ["bone", "organ", "hide"]
+          name: 'Shimmering Mane',
+          types: ['bone', 'organ', 'hide']
         }
       }
     }

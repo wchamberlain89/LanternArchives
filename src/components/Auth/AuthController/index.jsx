@@ -8,10 +8,10 @@ import HomeLogo from './../../HomeLogo';
 
 class AuthController extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       showSignIn: true
-    }
+    };
     this.toggleForm = this.toggleForm.bind(this);
   }
 
@@ -25,22 +25,22 @@ class AuthController extends React.Component {
     if (this.props.auth.uid) {
       return (
         <Redirect to="/" />
-      )
+      );
     }
-    const formShowing = this.state.showSignIn ? <SignIn {...this.props} toggleForm={this.toggleForm}/> : <Register toggleForm={this.toggleForm}/>
+    const formShowing = this.state.showSignIn ? <SignIn {...this.props} toggleForm={this.toggleForm}/> : <Register toggleForm={this.toggleForm}/>;
     return (
       <div style={containerStyles}>
         <HomeLogo/>
         {formShowing}
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     auth : state.firebase.auth
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(AuthController);

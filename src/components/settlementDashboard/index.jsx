@@ -22,22 +22,22 @@ function settlementDashboard(props) {
       </Switch>
 
     </div>
-  )
+  );
 }
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
   const settlements = state.firebase.data.settlements;
-  const settlement = settlements ? settlements[id] : null
+  const settlement = settlements ? settlements[id] : null;
   return {
     settlement: settlement,
     auth: state.firebase.auth
-  }
-}
+  };
+};
 
 export default withRouter(compose(
   connect(mapStateToProps),
   firebaseConnect((props) => [
     {path: 'settlements'}
   ])
-)(settlementDashboard))
+)(settlementDashboard));

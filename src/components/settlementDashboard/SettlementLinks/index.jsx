@@ -7,7 +7,7 @@ function SettlementLinks(props) {
       <Link to={`/settlements/${props.settlementId}/resources`}>resources</Link>
       <Link to={`/settlements/${props.settlementId}/survivors`}>Survivors</Link>
     </div>
-  )
+  );
 }
 
 export default SettlementLinks;
