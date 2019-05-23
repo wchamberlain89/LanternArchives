@@ -24,7 +24,7 @@ class AuthController extends React.Component {
   render() {
     if (this.props.auth.uid) {
       return (
-        <Redirect to="/settlements" />
+        <Redirect to="/" />
       )
     }
     const formShowing = this.state.showSignIn ? <SignIn {...this.props}/> : <Register/>

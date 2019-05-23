@@ -7,9 +7,8 @@ import {createSettlement} from './../../actions';
 import {Link} from 'react-router-dom';
 import Test from './../Test';
 
-function Settlements(props) {
+function SettlementsList(props) {
   const {settlements} = props;
-  console.log(settlements)
 
   function handleClick() {
     props.createSettlement(props.auth.uid)
@@ -52,4 +51,4 @@ export default compose(
   firebaseConnect((props) => [
     { path: 'settlements', queryParams: ['orderByChild=user', `equalTo=${props.auth.uid}`] }
   ])
-)(Settlements)
+)(SettlementsList)
