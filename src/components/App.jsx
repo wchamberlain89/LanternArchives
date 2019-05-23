@@ -11,16 +11,31 @@ import SettlementDashboard from './settlementDashboard';
 
 
 function App() {
-
-
     return (
-      <div>
-        <Switch>
-          <Route path='/settlements/:id' component={SettlementDashboard}/>
-          <Route path="/signIn" component={AuthController}/>
-          <Route path="/" component={Dashboard} />
-          <Route component={Error404}/>
-        </Switch>
+      <div style={{backgroundColor: 'red', minHeight: '100vh', background: 'linear-gradient(180deg, #000000 0%, #0A0909 39.06%, #4E0000 100%)'}}>
+        <div className="main-container">
+          <Switch>
+            <Route path='/settlements/:id' component={SettlementDashboard}/>
+            <Route path="/signIn" component={AuthController}/>
+            <Route path="/" component={Dashboard} />
+            <Route component={Error404}/>
+          </Switch>
+          <style jsx global>{`
+            * {
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+              font-weight: normal;
+            }
+          `}</style>
+          <style jsx>{`
+            .main-container {
+              margin: 0 auto;
+              width: 90%;
+              max-width: 400px;
+            }
+          `}</style>
+        </div>
       </div>
     );
 

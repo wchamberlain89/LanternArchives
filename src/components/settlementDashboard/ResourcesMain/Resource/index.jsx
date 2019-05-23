@@ -6,7 +6,7 @@ function Resource(props) {
   const {resource} = props;
 
   function handleClick() {
-    props.updateQty('bone', 16, props.settlementId);
+    props.updateQty('hide', props.settlementId);
   }
 
   return(

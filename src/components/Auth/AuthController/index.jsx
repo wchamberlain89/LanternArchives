@@ -1,10 +1,10 @@
 import React from 'react';
 import SignIn from './../SignIn';
 import Register from './../Register';
-import Test from './../../Test';
-import Landing from './../../Landing';
 import {connect} from 'react-redux';
 import {Redirect, withRouter} from 'react-router';
+import {containerStyles} from './styles';
+import HomeLogo from './../../HomeLogo';
 
 class AuthController extends React.Component {
   constructor(props) {
@@ -27,13 +27,11 @@ class AuthController extends React.Component {
         <Redirect to="/" />
       )
     }
-    const formShowing = this.state.showSignIn ? <SignIn {...this.props}/> : <Register/>
+    const formShowing = this.state.showSignIn ? <SignIn {...this.props} toggleForm={this.toggleForm}/> : <Register toggleForm={this.toggleForm}/>
     return (
-      <div>
-        <Test/>
-        <Landing/>
+      <div style={containerStyles}>
+        <HomeLogo/>
         {formShowing}
-        <button onClick={this.toggleForm}> Toggle Form </button>
       </div>
     )
   }

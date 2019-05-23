@@ -1,28 +1,41 @@
-const newResourceSet = {
-    '???' : {
-      name: "???",
-      obtainedFrom: "Basic Resources",
-      qty: 0,
-      type: ["bone", "organ", "hide"]
+const availableResources = {
+  categories :
+  {
+    basicresources : {
+      name: "Basic Resources",
+      resources: {
+        "???" : {
+          name: "???",
+          types: ["bone", "organ", "hide"]
+        },
+        monsterhide : {
+          name: "Monster Hide",
+          types: ["bone", "organ", "hide"]
+        },
+        monsterbone : {
+          name: "Monster Bone",
+          types: ["bone", "organ", "hide"]
+        }
+      }
     },
-    monsterHide : {
-      name: "Monster Hide",
-      obtainedFrom: "Basic Resources",
-      qty: 0,
-      type: ["hide"]
-    },
-    monsterBone : {
-      name: "Monster Bone",
-      obtainedFrom: "Basic Resources",
-      qty: 0,
-      type: ['bone']
-    },
-    brokenLantern : {
-      name: "Monster Organ",
-      obtainedFrom : "Basic Resources",
-      qty: 0,
-      type: ["organ"]
+    whitelion : {
+      name: "White Lion",
+      resources: {
+        lionclaw : {
+          name: "Lion Claw",
+          types: ["bone", "organ", "hide"]
+        },
+        liontestes: {
+          name: "Lion Testes",
+          types: ["bone", "organ", "hide"]
+        },
+        shimmeringmane : {
+          name: "Shimmering Mane",
+          types: ["bone", "organ", "hide"]
+        }
+      }
     }
+  }
 };
 
-export default newResourceSet;
+export default availableResources;

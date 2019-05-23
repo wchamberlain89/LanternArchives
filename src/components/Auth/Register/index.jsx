@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { signUp } from './../../../actions';
+import user from './../../../assets/user.png';
+import password from './../../../assets/password.png';
 
 class Register extends React.Component {
 
@@ -79,17 +81,115 @@ class Register extends React.Component {
 
   render() {
     return (
-      <form>
-        <input type="email" placeholder="Email" name="email" onChange={this.handleChange}/>
+      <div className='registerContainer'>
+        <h3>Register a new account.</h3>
+        <form>
+
         <div className="errorMsg">{this.state.formErrors.email}</div>
-        <input type="text" placeholder="Password" name="password" onChange={this.handleChange}/>
-        <div className="errorMsg">{this.state.formErrors.password}</div>
-        <input type="text" placeholder="Verify your password" name="password2" onChange={this.handleChange}/>
-        <div className="errorMsg">{this.state.formErrors.password2}</div>
-        <button
-          onClick={this.handleRegister}
-          type="submit">Register</button>
-      </form>
+          <div className='inputContainer'>
+            <div className='imgContainer'>
+              <img src={user} style={{paddingTop: "2px"}} alt=""/>
+            </div>
+            <input type="text" placeholder="Email"    name="email"    onChange={this.handleChange}/>
+          </div>
+
+
+          <div className="errorMsg">{this.state.formErrors.password}</div>
+          <div className='inputContainer'>
+            <div className='imgContainer'>
+              <img src={password} alt=""/>
+            </div>
+            <input type="password" placeholder="Password" name="password" onChange={this.handleChange}/>
+          </div>
+
+
+          <div className="errorMsg">{this.state.formErrors.password2}</div>
+          <div className='inputContainer'>
+            <div className='imgContainer'>
+              <img src={password} alt=""/>
+            </div>
+            <input type="password" placeholder="Verify Password" name="password2" onChange={this.handleChange}/>
+          </div>
+
+
+          <button
+            onClick={this.handleRegister}
+            type="submit">Register
+          </button>
+        </form>
+        <h3>Already have an account? <span onClick={this.props.toggleForm}>Sign in here!</span> </h3>
+        <style jsx>{`
+          h3 {
+            color: white;
+            font-size: 14px;
+            font-family: "slabo 27px";
+            text-align: center;
+            margin-bottom: 20px;
+          }
+          form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          input {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            padding-left: 10px;
+            color: white;
+          }
+          img {
+            width: 30px;
+            height: 100%;
+          }
+          span {
+            color: blue;
+            text-decoration: underline;
+          }
+          span:hover {
+            cursor: pointer;
+          }
+          button {
+            height: 30px;
+            width: 100%;
+            max-width: 300px;
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            border-radius: 2px;
+            margin-bottom: 10px;
+          }
+          button:hover {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+          }
+          .inputContainer {
+            height: 30px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid white;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.0025);
+            border-radius: 2px;
+            display: flex;
+            margin-bottom: 10px;
+          }
+          .imgContainer {
+            background-color: white;
+            width: 30px;
+            height: 100%;
+          }
+          .registerContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+          }
+          .errorMsg {
+            color: red;
+          }
+          `}</style>
+      </div>
     );
   }
 }

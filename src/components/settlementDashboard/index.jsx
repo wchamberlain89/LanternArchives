@@ -7,6 +7,7 @@ import {withRouter} from 'react-router';
 import SurvivorsMain from './SurvivorsMain';
 import ResourcesMain from './ResourcesMain';
 import SettlementLinks from './SettlementLinks';
+import lanternLogo from './../../assets/lanternLogo.png';
 
 function settlementDashboard(props) {
   return(
@@ -19,6 +20,7 @@ function settlementDashboard(props) {
         <Route path='/settlements/:id/survivors' component={SurvivorsMain} />
         <Route path='/settlements/:id' render={(props) => <SettlementLinks settlementId={props.match.params.id}/> } />
       </Switch>
+
     </div>
   )
 }

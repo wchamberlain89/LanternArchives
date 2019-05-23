@@ -7,28 +7,50 @@ import {createSettlement} from './../../actions';
 import {Link} from 'react-router-dom';
 import Test from './../Test';
 
+
+
 function SettlementsList(props) {
   const {settlements} = props;
 
-  function handleClick() {
-    props.createSettlement(props.auth.uid)
-  }
 
+
+  function handleClick() {
+
+  }
   return(
     <div>
-      Settlements container
-      <Test/>
-      <Landing/>
+      <Link to={'/addSettlement'}><div onClick={props.toggleForm} className="newSettlement">
+        <span>Create a new settlement</span>
+      </div></Link>
       { settlements && Object.keys(settlements).map(settlementId => {
         const currentSettlement = settlements[settlementId];
-        console.log(currentSettlement.name)
         return (
           <Link to={'/settlements/' + settlementId} key={settlementId}>
-            <div>{settlementId}</div>
+            <div>{currentSettlement.name}</div>
           </Link>
         )
         })}
-      <button onClick={handleClick}>Create Settlement</button>
+      <style jsx>{`
+        .newSettlement{
+          width: 100%;
+          max-width: 275px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid white;
+          border-radius: 100px;
+          color: white;
+          font-family: "slabo 13px";
+          font-size: 18px;
+          margin:0 auto;
+        }
+        .newSettlement:hover {
+          background-color: white;
+          color: black;
+          cursor: pointer;
+        }
+        `}</style>
     </div>
   )
 }
